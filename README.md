@@ -1,7 +1,7 @@
-# flutter_uikit_true_power
+# flutter UIkit true power
 
-A new Flutter project.
-
+You can find all kinda things hear
+[![style: lint](https://img.shields.io/badge/style-lint-4BC0F5.svg)](https://pub.dev/packages/lint)
 ## Getting Started
 
 This project is a starting point for a Flutter application.
