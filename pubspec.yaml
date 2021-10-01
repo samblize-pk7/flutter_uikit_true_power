@@ -31,9 +31,10 @@ dependencies:
     # ui kits
     cupertino_icons: ^1.0.2
     google_fonts: ^2.1.0
-    flutter_icons: ^1.1.0
+    flutter_vector_icons: ^1.0.0
     introduction_screen: ^2.1.0
     flutter_native_splash: ^1.2.4
+    ionicons: ^0.1.2
     # main bottom nav
     sliding_clipped_nav_bar: ^1.0.3
 
@@ -48,8 +49,9 @@ dev_dependencies:
 flutter:
     uses-material-design: true
     # To add assets to your application, add an assets section, like this:
-    # assets:
-    #   - images/a_dot_burr.jpeg
+    assets:
+      - assets/images/
+      - assets/images/flight_booking/
     #   - images/a_dot_ham.jpeg
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware.

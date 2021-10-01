@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_uikit_true_power/Routes/routes.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/get.dart';
 import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
 
@@ -22,8 +24,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -53,8 +53,8 @@ class _HomeViewState extends State<HomeView> {
         selectedIndex: _selectedIndex,
         barItems: [
           BarItem(
-            icon: Icons.event,
-            title: 'Events',
+            icon: Feather.home,
+            title: 'Home',
             activeColor: Colors.amber,
             inactiveColor: Colors.red,
           ),
@@ -65,13 +65,13 @@ class _HomeViewState extends State<HomeView> {
             inactiveColor: Colors.green,
           ),
           BarItem(
-            icon: Icons.bolt_rounded,
+            icon: Feather.cloud_lightning,
             title: 'Energy',
             activeColor: Colors.green,
             inactiveColor: Colors.blue,
           ),
           BarItem(
-            icon: Icons.tune_rounded,
+            icon: Feather.user,
             title: 'Settings',
             activeColor: Colors.purple,
             inactiveColor: Colors.brown,
@@ -83,18 +83,13 @@ class _HomeViewState extends State<HomeView> {
         physics: NeverScrollableScrollPhysics(),
         children: [
           Center(
-            child: GestureDetector(
-                onTap: () {
-                  Get.to(() => SeApp());
+            child: ElevatedButton(
+                onPressed: () {
+                  Get.toNamed(
+                    RoutesName.fbLogin,
+                  );
                 },
-                child: GestureDetector(
-                    onTap: () {
-                      Get.to(SeApp(title: 'lovely'),
-                          duration: Duration(milliseconds: 200),
-                          routeName: 'as',
-                          transition: Transition.fadeIn);
-                    },
-                    child: Text('Hello'))),
+                child: Text('Flight booking app')),
           ),
           Center(
             child: GestureDetector(
