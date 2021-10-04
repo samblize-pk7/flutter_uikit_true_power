@@ -2,13 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_uikit_true_power/Domain/flight_booking_app/view/fb_home_view.dart';
+import 'package:flutter_uikit_true_power/Routes/routes.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 TextStyle headline = GoogleFonts.poppins(
     fontWeight: FontWeight.w500, fontSize: 30, color: Color(0xFF141619));
 ThemeData fbPinkThemData =ThemeData.light().copyWith(
-          primaryColor: Colors.pink,
+          primaryColor: Colors.pink,appBarTheme: AppBarTheme(color: Colors.indigo[900]),
           colorScheme: ColorScheme.light().copyWith(primary: Colors.pink[400]),
           textTheme: GoogleFonts.poppinsTextTheme());
 class FBLoginView extends StatelessWidget {
@@ -156,7 +157,7 @@ class FBLoginView extends StatelessWidget {
                         EdgeInsets.symmetric(vertical: 0)),
                     shadowColor: MaterialStateProperty.all(Colors.grey)),
                 onPressed: () {
-                  Get.to(() => FBHomeView());
+                      Get.toNamed(RoutesName.fbHome);
                 },
                 child: Text(
                   'Skip for Now',

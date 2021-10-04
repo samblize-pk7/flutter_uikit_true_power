@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_uikit_true_power/Domain/flight_booking_app/model/category_model.dart';
 import 'package:flutter_uikit_true_power/Domain/flight_booking_app/model/location_model.dart';
 import 'package:flutter_uikit_true_power/Domain/flight_booking_app/view/fb_login_view.dart';
+import 'package:flutter_uikit_true_power/Routes/routes.dart';
+import 'package:get/get.dart';
 
 import 'package:ionicons/ionicons.dart';
 
@@ -68,12 +70,11 @@ class FBImageAssets {
         priceFrom: '650',
         country: 'Italy',
         town: 'Mandorla'),
-         LocationModel(
+    LocationModel(
         assetAddress: 'assets/images/flight_booking/Venice-Italy.jpg',
         priceFrom: '440',
         country: 'Italy',
         town: 'Venice'),
-    
     LocationModel(
         assetAddress:
             'assets/images/flight_booking/Tian-Tan-Buddha-Hong-Kong.jpg',
@@ -184,82 +185,87 @@ class FBHomeView extends StatelessWidget {
                   itemBuilder: (context, offerIndex) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.3),
-                                  spreadRadius: 3,
-                                  blurRadius: 7,
-                                  offset: Offset(
-                                      2, 4), // changes position of shadow
-                                ),
-                              ],
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(12),
-                              child: Stack(
-                                children: [
-                                  Image.asset(
-                                    FBImageAssets
-                                        .locations[offerIndex].assetAddress,
-                                    width: 280,
-                                    height: 180,
-                                    fit: BoxFit.cover,
+                      child: GestureDetector(
+                        onTap: () {
+                          Get.toNamed(RoutesName.fbSearch);
+                        },
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.3),
+                                    spreadRadius: 3,
+                                    blurRadius: 7,
+                                    offset: Offset(
+                                        2, 4), // changes position of shadow
                                   ),
-                                  Positioned(
-                                    top: 0,
-                                    bottom: 0,
-                                    left: 0,
-                                    right: 0,
-                                    child: Container(
-                                      decoration: const BoxDecoration(
-                                        gradient: LinearGradient(
-                                          begin: Alignment.topRight,
-                                          end: Alignment(1,
-                                              .6), // 10% of the width, so there are ten blinds.
-                                          colors: <Color>[
-                                            Color(0x1E070706),
-                                            Color(0xD3070706)
-                                          ], // red to yellow
-                                          tileMode: TileMode
-                                              .clamp, // repeats the gradient over the canvas
+                                ],
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(12),
+                                child: Stack(
+                                  children: [
+                                    Image.asset(
+                                      FBImageAssets
+                                          .locations[offerIndex].assetAddress,
+                                      width: 280,
+                                      height: 180,
+                                      fit: BoxFit.cover,
+                                    ),
+                                    Positioned(
+                                      top: 0,
+                                      bottom: 0,
+                                      left: 0,
+                                      right: 0,
+                                      child: Container(
+                                        decoration: const BoxDecoration(
+                                          gradient: LinearGradient(
+                                            begin: Alignment.topRight,
+                                            end: Alignment(1,
+                                                .6), // 10% of the width, so there are ten blinds.
+                                            colors: <Color>[
+                                              Color(0x1E070706),
+                                              Color(0xD3070706)
+                                            ], // red to yellow
+                                            tileMode: TileMode
+                                                .clamp, // repeats the gradient over the canvas
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  Positioned(
-                                      bottom: 15,
-                                      left: 25,
-                                      child: Text(
-                                          'from \$${FBImageAssets.locations[offerIndex].priceFrom} USD',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 16))),
-                                ],
+                                    Positioned(
+                                        bottom: 15,
+                                        left: 25,
+                                        child: Text(
+                                            'from \$${FBImageAssets.locations[offerIndex].priceFrom} USD',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16))),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            FBImageAssets.locations[offerIndex].country,
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 2,
-                          ),
-                          Text(FBImageAssets.locations[offerIndex].town,
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              FBImageAssets.locations[offerIndex].country,
                               style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.w100)),
-                        ],
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              height: 2,
+                            ),
+                            Text(FBImageAssets.locations[offerIndex].town,
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.w100)),
+                          ],
+                        ),
                       ),
                     );
                   }),
@@ -290,76 +296,82 @@ class FBHomeView extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.3),
-                                  spreadRadius: 3,
-                                  blurRadius: 7,
-                                  offset: Offset(
-                                      2, 4), // changes position of shadow
-                                ),
-                              ],
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(12),
-                              child: Stack(
-                                children: [
-                                  Image.asset(
-                                    FBImageAssets
-                                        .popularPlace[offerIndex].assetAddress,
-                                    width: 380,
-                                    height: 230,
-                                    fit: BoxFit.cover,
+                          GestureDetector(onTap: (){
+                                Get.toNamed(RoutesName.fbSearch);
+                          },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.3),
+                                    spreadRadius: 3,
+                                    blurRadius: 7,
+                                    offset: Offset(
+                                        2, 4), // changes position of shadow
                                   ),
-                                  Positioned(
-                                    top: 0,
-                                    bottom: 0,
-                                    left: 0,
-                                    right: 0,
-                                    child: Container(
-                                      decoration: const BoxDecoration(
-                                        gradient: LinearGradient(
-                                          begin: Alignment.topRight,
-                                          end: Alignment(1,
-                                              .6), // 10% of the width, so there are ten blinds.
-                                          colors: <Color>[
-                                            Color(0x1E070706),
-                                            Color(0xD3070706)
-                                          ], // red to yellow
-                                          tileMode: TileMode
-                                              .clamp, // repeats the gradient over the canvas
+                                ],
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(12),
+                                child: Stack(
+                                  children: [
+                                    Image.asset(
+                                      FBImageAssets
+                                          .popularPlace[offerIndex].assetAddress,
+                                      width: 380,
+                                      height: 230,
+                                      fit: BoxFit.cover,
+                                    ),
+                                    Positioned(
+                                      top: 0,
+                                      bottom: 0,
+                                      left: 0,
+                                      right: 0,
+                                      child: Container(
+                                        decoration: const BoxDecoration(
+                                          gradient: LinearGradient(
+                                            begin: Alignment.topRight,
+                                            end: Alignment(1,
+                                                .6), // 10% of the width, so there are ten blinds.
+                                            colors: <Color>[
+                                              Color(0x1E070706),
+                                              Color(0xD3070706)
+                                            ], // red to yellow
+                                            tileMode: TileMode
+                                                .clamp, // repeats the gradient over the canvas
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  Positioned(
-                                    bottom: 25,
-                                    left: 25,
-                                    child: Text(
-                                      FBImageAssets
-                                          .popularPlace[offerIndex].country,
-                                      style: TextStyle(color: Colors.white,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ),Positioned(
-                                        bottom: 5,
-                                    left: 25,
-                                    child: Text(
+                                    Positioned(
+                                      bottom: 25,
+                                      left: 25,
+                                      child: Text(
                                         FBImageAssets
-                                            .popularPlace[offerIndex].town,
-                                        style: TextStyle(color: Colors.white,
+                                            .popularPlace[offerIndex].country,
+                                        style: TextStyle(
+                                            color: Colors.white,
                                             fontSize: 16,
-                                            fontWeight: FontWeight.w100)),
-                                  )
-                                ],
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      bottom: 5,
+                                      left: 25,
+                                      child: Text(
+                                          FBImageAssets
+                                              .popularPlace[offerIndex].town,
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w100)),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ),
-                         
                         ],
                       ),
                     );
