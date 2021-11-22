@@ -35,6 +35,8 @@ dependencies:
     introduction_screen: ^2.1.0
     flutter_native_splash: ^1.2.4
     ionicons: ^0.1.2
+    scroll_snap_list: ^0.8.2
+    card_swiper: ^1.0.4
     # main bottom nav
     sliding_clipped_nav_bar: ^1.0.3
 

@@ -1,9 +1,11 @@
+import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_uikit_true_power/Routes/routes.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/get.dart';
 import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
+import 'package:scroll_snap_list/scroll_snap_list.dart';
 
 void main() {
   runApp(const MyApp());
@@ -96,14 +98,37 @@ class _HomeViewState extends State<HomeView> {
                 onTap: () {
                   Get.to(() => SeApp());
                 },
-                child: Text('profile')),
+                child:Container(height: 120,
+                  child: Expanded(
+  child: ScrollSnapList(
+    scrollDirection: Axis.vertical,
+    onItemFocus: (index){},
+    itemSize: 100,
+    dynamicItemSize: true,dynamicItemOpacity: .5,
+    itemBuilder: (_ ,int index){
+      return Card( child: Center(child: Container(
+        padding: const EdgeInsets.all(20.0),
+        height: 100,
+        child: Text('sdsd'),
+      ),),);
+    },
+    itemCount: 10,
+    reverse: true,
+  ),
+),
+                ),  ),
           ),
           Center(
-            child: GestureDetector(
-                onTap: () {
-                  Get.to(() => SeApp());
-                },
-                child: Text('baby')),
+            child: Container(height: 300,
+              child: Swiper(scrollDirection: Axis.vertical,
+        itemBuilder: (BuildContext context,int index){
+          return Container(color: Colors.amber ,child: Center(child:Text('swipe')),);
+        },
+        itemCount: 3,
+        pagination:  SwiperPagination.rect,layout: SwiperLayout.STACK,itemHeight: 200,itemWidth: 300,
+        
+      ),
+            ),
           ),
           Center(
             child: GestureDetector(
