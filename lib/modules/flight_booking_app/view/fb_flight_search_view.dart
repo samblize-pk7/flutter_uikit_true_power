@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_uikit_true_power/Domain/flight_booking_app/view/fb_login_view.dart';
+import 'package:flutter_uikit_true_power/Modules/flight_booking_app/view/fb_login_view.dart';
+
 
 import 'package:ionicons/ionicons.dart';
 

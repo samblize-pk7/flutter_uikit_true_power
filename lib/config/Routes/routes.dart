@@ -1,6 +1,7 @@
-import 'package:flutter_uikit_true_power/Domain/flight_booking_app/view/fb_flight_search_view.dart';
-import 'package:flutter_uikit_true_power/Domain/flight_booking_app/view/fb_home_view.dart';
-import 'package:flutter_uikit_true_power/Domain/flight_booking_app/view/fb_login_view.dart';
+
+import 'package:flutter_uikit_true_power/Modules/flight_booking_app/view/fb_flight_search_view.dart';
+import 'package:flutter_uikit_true_power/Modules/flight_booking_app/view/fb_home_view.dart';
+import 'package:flutter_uikit_true_power/Modules/flight_booking_app/view/fb_login_view.dart';
 import 'package:flutter_uikit_true_power/main.dart';
 
 import 'package:get/get_navigation/get_navigation.dart';
@@ -18,6 +19,7 @@ List<GetPage<dynamic>>? getRoutes = [
 class RoutesName {
   RoutesName._();
   ///  I use it for develop 
+ 
   static const String test = '/';
   static const String fbDevelop = '/Flight_booking/login';
   static const String fbLogin = '/Flight_booking/login';

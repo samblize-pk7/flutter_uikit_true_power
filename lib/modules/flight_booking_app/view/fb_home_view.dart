@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_uikit_true_power/Domain/flight_booking_app/model/category_model.dart';
-import 'package:flutter_uikit_true_power/Domain/flight_booking_app/model/location_model.dart';
-import 'package:flutter_uikit_true_power/Domain/flight_booking_app/view/fb_login_view.dart';
-import 'package:flutter_uikit_true_power/Routes/routes.dart';
+
+import 'package:flutter_uikit_true_power/Modules/flight_booking_app/model/category_model.dart';
+import 'package:flutter_uikit_true_power/Modules/flight_booking_app/model/location_model.dart';
+import 'package:flutter_uikit_true_power/Modules/flight_booking_app/view/fb_login_view.dart';
+import 'package:flutter_uikit_true_power/config/Routes/routes.dart';
+
 import 'package:get/get.dart';
 
 import 'package:ionicons/ionicons.dart';

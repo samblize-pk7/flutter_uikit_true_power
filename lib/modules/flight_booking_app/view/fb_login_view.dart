@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:flutter_uikit_true_power/Domain/flight_booking_app/view/fb_home_view.dart';
-import 'package:flutter_uikit_true_power/Routes/routes.dart';
+import 'package:flutter_uikit_true_power/config/Routes/routes.dart';
+
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
