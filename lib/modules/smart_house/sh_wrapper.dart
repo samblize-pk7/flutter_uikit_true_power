@@ -18,7 +18,7 @@ class SmartHouseWrapper extends StatelessWidget {
     List<Widget> page = [
      SmartHouseWidgetView(),
       Center(
-        child: Text('Profile',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,letterSpacing: 2),),
+        child: Text('Profile',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,letterSpacing: 2),),
       ),
       Center(
         child: Text('setting'),
