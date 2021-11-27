@@ -1,30 +1,39 @@
-
-import 'package:flutter_uikit_true_power/Modules/flight_booking_app/view/fb_flight_search_view.dart';
-import 'package:flutter_uikit_true_power/Modules/flight_booking_app/view/fb_home_view.dart';
-import 'package:flutter_uikit_true_power/Modules/flight_booking_app/view/fb_login_view.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_uikit_true_power/main.dart';
-
+import 'package:flutter_uikit_true_power/modules/smart_house/sh_wrapper.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
-
-List<GetPage<dynamic>>? getRoutes = [
-  GetPage(name: RoutesName.test, page: () => HomeView()),
-  // GetPage(name: RoutesName.test, page: () => FBLoginView()),
-  GetPage(name: RoutesName.fbLogin, page: () => FBLoginView()),
-  GetPage(name: RoutesName.fbHome, page: () => FBHomeView()),
-  GetPage(name: RoutesName.fbSearch, page: () => FBSearchFlightView()),
-  // GetPage(name: RoutesName.secondApp , page: () => SeApp(), transition: Transition.zoom),
-];
-
+@immutable
 class RoutesName {
-  RoutesName._();
-  ///  I use it for develop 
- 
-  static const String test = '/';
-  static const String fbDevelop = '/Flight_booking/login';
-  static const String fbLogin = '/Flight_booking/login';
-  static const String fbHome = '/Flight_booking/Home';
-  static const String fbSearch = '/Flight_booking/Search';
-  // static const String flightBookingApp = '/Flight_booking';
-  // static const String secondApp = '/tho';
+  RoutesName._internal();
+  static final RoutesName _singleton = RoutesName._internal();
+  factory RoutesName() {
+    return _singleton;
+  }
+//--------------- Pages ----------------------
+
+  List<GetPage<dynamic>>? get routes => _routes;
+  final List<GetPage<dynamic>>? _routes = [
+    GetPage(name: RoutesName.home, page: () => HomeView()),
+    GetPage(
+        name: RoutesName.smartHouseApp.base,
+        page: () => SmartHouseWrapper(),
+        children: const []),
+  ];
+//--------------- Routes Name ----------------------
+
+  static const String home = '/';
+  static _SmartHomeApp smartHouseApp = _SmartHomeApp();
+}
+
+@immutable
+class _SmartHomeApp {
+  const _SmartHomeApp._internal();
+  static final _SmartHomeApp _singleton = _SmartHomeApp._internal();
+  factory _SmartHomeApp() {
+    return _singleton;
+  }
+//--------------- Here ----------------------
+
+  final String base = '/Smart-house';
 }

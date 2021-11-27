@@ -189,7 +189,7 @@ class FBHomeView extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: GestureDetector(
                         onTap: () {
-                          Get.toNamed(RoutesName.fbSearch);
+                          // Get.toNamed(RoutesName.fbSearch);
                         },
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -299,7 +299,7 @@ class FBHomeView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           GestureDetector(onTap: (){
-                                Get.toNamed(RoutesName.fbSearch);
+                                // Get.toNamed(RoutesName.fbSearch);
                           },
                             child: Container(
                               decoration: BoxDecoration(

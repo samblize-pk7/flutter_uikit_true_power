@@ -1,6 +1,7 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_uikit_true_power/config/Routes/routes.dart';
+import 'package:flutter_uikit_true_power/constants/my_assets.dart';
 
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/get.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter true power',
       theme: ThemeData.dark(),
       initialRoute: '/',
-      getPages: getRoutes,
+      getPages: RoutesName().routes,
     );
   }
 }
@@ -35,8 +36,8 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  int _selectedIndex = 0;
-  late PageController _pageController =
+  int _selectedIndex = 1;
+  late PageController pageController =
       PageController(initialPage: _selectedIndex);
   @override
   Widget build(BuildContext context) {
@@ -47,7 +48,7 @@ class _HomeViewState extends State<HomeView> {
           setState(() {
             _selectedIndex = index;
           });
-          _pageController.animateToPage(_selectedIndex,
+          pageController.animateToPage(_selectedIndex,
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeOutQuad);
         },
@@ -55,22 +56,16 @@ class _HomeViewState extends State<HomeView> {
         selectedIndex: _selectedIndex,
         barItems: [
           BarItem(
-            icon: Feather.home,
-            title: 'Home',
-            activeColor: Colors.amber,
-            inactiveColor: Colors.red,
-          ),
-          BarItem(
-            icon: Icons.search_rounded,
-            title: 'Search',
-            activeColor: Colors.red,
-            inactiveColor: Colors.green,
-          ),
-          BarItem(
             icon: Feather.cloud_lightning,
             title: 'Energy',
             activeColor: Colors.green,
             inactiveColor: Colors.blue,
+          ),
+          BarItem(
+            icon: Feather.home,
+            title: 'Home',
+            activeColor: Colors.amber,
+            inactiveColor: Colors.red,
           ),
           BarItem(
             icon: Feather.user,
@@ -81,53 +76,74 @@ class _HomeViewState extends State<HomeView> {
         ],
       ),
       body: PageView(
-        controller: _pageController,
+        controller: pageController,
         physics: NeverScrollableScrollPhysics(),
         children: [
           Center(
             child: ElevatedButton(
-                onPressed: () {
-                  Get.toNamed(
-                    RoutesName.fbLogin,
-                  );
-                },
-                child: Text('Flight booking app')),
+                onPressed: () {}, child: Text('Flight booking app')),
+          ),
+          ListView.builder(
+            itemCount: 1,
+            itemBuilder: (_, index) {
+              return GestureDetector(
+                onTap: () => Get.toNamed(RoutesName.smartHouseApp.base),
+                child: Container(
+                  margin: EdgeInsets.symmetric(vertical: 5),
+                  child: Image.asset(MyImageAssets.smartHouse),
+                ),
+              );
+            },
           ),
           Center(
             child: GestureDetector(
-                onTap: () {
-                  Get.to(() => SeApp());
-                },
-                child:Container(height: 120,
-                  child: Expanded(
-  child: ScrollSnapList(
-    scrollDirection: Axis.vertical,
-    onItemFocus: (index){},
-    itemSize: 100,
-    dynamicItemSize: true,dynamicItemOpacity: .5,
-    itemBuilder: (_ ,int index){
-      return Card( child: Center(child: Container(
-        padding: const EdgeInsets.all(20.0),
-        height: 100,
-        child: Text('sdsd'),
-      ),),);
-    },
-    itemCount: 10,
-    reverse: true,
-  ),
-),
-                ),  ),
+              onTap: () {
+                Get.to(() => SeApp());
+              },
+              child: Container(
+                height: 120,
+                child: Expanded(
+                  child: ScrollSnapList(
+                    scrollDirection: Axis.vertical,
+                    onItemFocus: (index) {},
+                    itemSize: 100,
+                    dynamicItemSize: true,
+                    dynamicItemOpacity: .5,
+                    itemBuilder: (_, int index) {
+                      return Card(
+                        child: Center(
+                          child: Container(
+                            padding: const EdgeInsets.all(20.0),
+                            height: 100,
+                            child: Text('sdsd'),
+                          ),
+                        ),
+                      );
+                    },
+                    itemCount: 10,
+                    reverse: true,
+                  ),
+                ),
+              ),
+            ),
           ),
           Center(
-            child: Container(height: 300,
-              child: Swiper(scrollDirection: Axis.vertical,
-        itemBuilder: (BuildContext context,int index){
-          return Container(color: Colors.amber ,child: Center(child:Text('swipe')),);
-        },
-        itemCount: 3,
-        pagination:  SwiperPagination.rect,layout: SwiperLayout.STACK,itemHeight: 200,itemWidth: 300,
-        
-      ),
+            child: Container(
+              height: 300,
+              child: Swiper(
+                scrollDirection: Axis.vertical,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    color: Colors.amber,
+                    child: Center(child: Text('swipe')),
+                  );
+                },
+                itemCount: 3,
+                pagination: SwiperPagination.rect,
+                layout: SwiperLayout.STACK,
+                itemHeight: 200,
+                itemWidth: 300,
+              ),
             ),
           ),
           Center(

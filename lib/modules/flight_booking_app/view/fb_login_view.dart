@@ -158,7 +158,7 @@ class FBLoginView extends StatelessWidget {
                         EdgeInsets.symmetric(vertical: 0)),
                     shadowColor: MaterialStateProperty.all(Colors.grey)),
                 onPressed: () {
-                      Get.toNamed(RoutesName.fbHome);
+                      // Get.toNamed(RoutesName.fbHome);
                 },
                 child: Text(
                   'Skip for Now',

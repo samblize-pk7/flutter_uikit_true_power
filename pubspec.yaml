@@ -37,9 +37,12 @@ dependencies:
     ionicons: ^0.1.2
     scroll_snap_list: ^0.8.4
     card_swiper: ^1.0.4
+    animate_do: ^2.0.0
+    flutter_neumorphic: ^3.2.0
     # main bottom nav
-    sliding_clipped_nav_bar: ^2.0.0
-
+  
+    sliding_clipped_nav_bar: ^2.0.1
+      
 dev_dependencies:
     flutter_lints: ^1.0.4
     flutter_test:
@@ -54,6 +57,7 @@ flutter:
     assets:
       - assets/images/
       - assets/images/flight_booking/
+      - assets/images/_app_screen_shotes/
     #   - images/a_dot_ham.jpeg
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware.
