@@ -1,16 +1,16 @@
 # flutter UIkit true power
 
-You can find all kinda things hear
+You can find  some flutter UI example I made here.
+
 [![style: lint](https://img.shields.io/badge/style-lint-4BC0F5.svg)](https://pub.dev/packages/lint)
-## Getting Started
+## Development Setup
+Clone the repository and run the following commands:
+```
+flutter pub get
+flutter run
+```
 
-This project is a starting point for a Flutter application.
+## Screenshots
+### Smart House
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="https://user-images.githubusercontent.com/39870083/143673051-9259bd86-66a7-447a-91cb-08aa26d078fa.png" alt="Smart House" width="700"/>
