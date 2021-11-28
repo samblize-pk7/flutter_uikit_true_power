@@ -23,7 +23,9 @@ class RoutesName {
 //--------------- Routes Name ----------------------
 
   static const String home = '/';
+  
   static _SmartHomeApp smartHouseApp = _SmartHomeApp();
+  static _TodoManager todoManager = _TodoManager();
 }
 
 @immutable
@@ -36,4 +38,15 @@ class _SmartHomeApp {
 //--------------- Here ----------------------
 
   final String base = '/Smart-house';
+}
+@immutable
+class _TodoManager {
+  const _TodoManager._internal();
+  static final _TodoManager _singleton = _TodoManager._internal();
+  factory _TodoManager() {
+    return _singleton;
+  }
+//--------------- Here ----------------------
+
+  final String base = '/Todo-manager';
 }

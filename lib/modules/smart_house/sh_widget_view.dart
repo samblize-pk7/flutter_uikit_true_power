@@ -127,69 +127,71 @@ class SmartHouseWidgetView extends StatelessWidget {
                 SizedBox(
                   width: 20,
                 ),
-                FadeInDown(delay: Duration(milliseconds: 250),
-                  child: GestureDetector(
-                    onTap: () => controller.wifiToggle(),
-                    child: Neumorphic(
-                      style: NeumorphicStyle(
-                          shape: NeumorphicShape.flat,
-                          boxShape: NeumorphicBoxShape.roundRect(
-                              BorderRadius.circular(10)
-                                  .copyWith(topRight: Radius.circular(25))),
-                          depth: 3,
-                          intensity: .95,
-                          lightSource: LightSource.topLeft,
-                          color: Color(0xffE3EDF7)),
-                      child: Container(
-                        padding: EdgeInsets.all(30),
-                        height: 140,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Icon(
-                                  Icons.wifi,
-                                  color: Colors.grey[600],
-                                  size: 30,
-                                ),SizedBox(width: 10,),
-                                Neumorphic(
-                                  style: NeumorphicStyle(
-                                      shape: NeumorphicShape.convex,
-                                      boxShape: NeumorphicBoxShape.roundRect(
-                                          BorderRadius.circular(10).copyWith(
-                                              topRight: Radius.circular(25))),
-                                      depth: -1,
-                                      intensity: .85,
-                                      lightSource: LightSource.topLeft,
-                                      color: Color(0xffE3EDF7)),
-                                  child: Obx(() => AnimatedContainer(
-                                        duration: Duration(
-                                          milliseconds: 200,
-                                        ),
-                                        width: 10,
-                                        height: 10,
-                                        decoration: BoxDecoration(
-                                            color: controller.wifi.value
-                                                ? Colors.greenAccent[400]
-                                                : Colors.orange,
-                                            borderRadius:
-                                                BorderRadius.circular(50)),
-                                      )),
-                                )
-                              ],
-                            ),
-                            Text(
-                              'Wifi',
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  letterSpacing: 2,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.grey[600]),
-                            )
-                          ],
+                Center(
+                  child: FadeInDown(delay: Duration(milliseconds: 250),
+                    child: GestureDetector(
+                      onTap: () => controller.wifiToggle(),
+                      child: Neumorphic(
+                        style: NeumorphicStyle(
+                            shape: NeumorphicShape.flat,
+                            boxShape: NeumorphicBoxShape.roundRect(
+                                BorderRadius.circular(10)
+                                    .copyWith(topRight: Radius.circular(25))),
+                            depth: 3,
+                            intensity: .95,
+                            lightSource: LightSource.topLeft,
+                            color: Color(0xffE3EDF7)),
+                        child: Container(
+                          padding: EdgeInsets.all(30),
+                          height: 140,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Icon(
+                                    Icons.wifi,
+                                    color: Colors.grey[600],
+                                    size: 30,
+                                  ),SizedBox(width: 10,),
+                                  Neumorphic(
+                                    style: NeumorphicStyle(
+                                        shape: NeumorphicShape.convex,
+                                        boxShape: NeumorphicBoxShape.roundRect(
+                                            BorderRadius.circular(10).copyWith(
+                                                topRight: Radius.circular(25))),
+                                        depth: -1,
+                                        intensity: .85,
+                                        lightSource: LightSource.topLeft,
+                                        color: Color(0xffE3EDF7)),
+                                    child: Obx(() => AnimatedContainer(
+                                          duration: Duration(
+                                            milliseconds: 200,
+                                          ),
+                                          width: 10,
+                                          height: 10,
+                                          decoration: BoxDecoration(
+                                              color: controller.wifi.value
+                                                  ? Colors.greenAccent[400]
+                                                  : Colors.orange,
+                                              borderRadius:
+                                                  BorderRadius.circular(50)),
+                                        )),
+                                  )
+                                ],
+                              ),
+                              Text(
+                                'Wifi',
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    letterSpacing: 2,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.grey[600]),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),

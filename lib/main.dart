@@ -12,6 +12,17 @@ void main() {
   runApp(const MyApp());
 }
 
+List<String> appImage = [
+  MyImageAssets.smartHouse,
+  MyImageAssets.todoApp,
+];
+List<String> appRoute = [
+  RoutesName.smartHouseApp.base,
+  RoutesName.todoManager.base,
+  
+];
+
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -84,13 +95,13 @@ class _HomeViewState extends State<HomeView> {
                 onPressed: () {}, child: Text('Flight booking app')),
           ),
           ListView.builder(
-            itemCount: 1,
+            itemCount: appImage.length,
             itemBuilder: (_, index) {
               return GestureDetector(
-                onTap: () => Get.toNamed(RoutesName.smartHouseApp.base),
+                onTap: () => Get.toNamed(appRoute[index]),
                 child: Container(
                   margin: EdgeInsets.symmetric(vertical: 5),
-                  child: Image.asset(MyImageAssets.smartHouse),
+                  child: Image.asset(appImage[index]),
                 ),
               );
             },
