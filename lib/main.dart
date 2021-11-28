@@ -19,9 +19,7 @@ List<String> appImage = [
 List<String> appRoute = [
   RoutesName.smartHouseApp.base,
   RoutesName.todoManager.base,
-  
 ];
-
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
