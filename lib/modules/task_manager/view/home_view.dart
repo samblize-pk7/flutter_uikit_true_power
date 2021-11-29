@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,6 +25,12 @@ class TaskManagerHomeView extends StatefulWidget {
 class _TaskManagerHomeViewState extends State<TaskManagerHomeView> {
   bool hideMenu = false;
   int selectedDay = 2;
+
+//______________________________________
+//
+//NOTE:  @Sajjad.Theory on Instagram
+//______________________________________
+
   @override
   Widget build(BuildContext context) {
     return Theme(
@@ -43,122 +50,131 @@ class _TaskManagerHomeViewState extends State<TaskManagerHomeView> {
                 bottom: 0,
                 top: 0,
                 left: hideMenu ? -80 : 0,
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 30),
-                  height: double.infinity,
-                  width: 80,
-                  color: Color(0xFF050505),
-                  child: SafeArea(
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                        GestureDetector(
-                          onTap: () => setState(() {
-                            hideMenu = !hideMenu;
-                          }),
-                          child: Icon(
-                            Feather.grid,
-                            color: Colors.white70,
-                            size: 28,
+                child: FadeInLeft(
+                  duration: Duration(milliseconds: 600),
+                  delay: Duration(milliseconds: 300),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 30),
+                    height: double.infinity,
+                    width: 80,
+                    color: Color(0xFF050505),
+                    child: SafeArea(
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                          GestureDetector(
+                            onTap: () => setState(() {
+                              // hideMenu = !hideMenu;
+
+                              // reload the page
+                              Navigator.of(context).pushReplacementNamed('/');
+                            }),
+                            child: Icon(
+                              Feather.grid,
+                              color: Colors.white70,
+                              size: 28,
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 60,
-                        ),
-                        Expanded(
-                          child: Center(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: List.generate(
-                                7,
-                                (i) => Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 8),
-                                  child: Stack(
-                                    children: [
-                                      AnimatedPositioned(
-                                          duration: Duration(milliseconds: 200),
-                                          right: selectedDay == i ? -10 : -25,
-                                          top: 10,
-                                          child: Transform.rotate(
-                                            angle: 3.14 / 4,
-                                            child: Container(
-                                              width: 20,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(3),
-                                                color: Colors.white,
-                                              ),
-                                              height: 20,
-                                              child: Center(
-                                                child: Stack(
-                                                  children: [
-                                                    Positioned(
-                                                      bottom: 3,
-                                                      left: 3,
-                                                      child: Container(
-                                                        height: 8,
-                                                        width: 8,
-                                                        decoration: BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        50),
-                                                            color: Color(
-                                                                0xffEFAB3E)),
+                          SizedBox(
+                            height: 60,
+                          ),
+                          Expanded(
+                            child: Center(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: List.generate(
+                                  7,
+                                  (i) => Padding(
+                                    padding:
+                                        const EdgeInsets.symmetric(vertical: 8),
+                                    child: Stack(
+                                      children: [
+                                        AnimatedPositioned(
+                                            duration:
+                                                Duration(milliseconds: 200),
+                                            right: selectedDay == i ? -10 : -25,
+                                            top: 10,
+                                            child: Transform.rotate(
+                                              angle: 3.14 / 4,
+                                              child: Container(
+                                                width: 20,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(3),
+                                                  color: Colors.white,
+                                                ),
+                                                height: 20,
+                                                child: Center(
+                                                  child: Stack(
+                                                    children: [
+                                                      Positioned(
+                                                        bottom: 3,
+                                                        left: 3,
+                                                        child: Container(
+                                                          height: 8,
+                                                          width: 8,
+                                                          decoration: BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          50),
+                                                              color: Color(
+                                                                  0xffEFAB3E)),
+                                                        ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          )),
-                                      Center(
-                                        child: GestureDetector(
-                                          onTap: () => setState(() {
-                                            selectedDay = i;
-                                          }),
-                                          child: Material(
-                                            elevation: 4,
-                                            color: selectedDay == i
-                                                ? Color(0xffEFAB3E)
-                                                : Colors.grey[800],
-                                            borderRadius:
-                                                BorderRadius.circular(6),
-                                            child: Container(
-                                              child: Center(
-                                                  child: Text(
-                                                _weekdayList[i],
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    color: selectedDay == i
-                                                        ? Colors.grey[900]
-                                                        : Colors.white,
-                                                    fontSize: 18),
-                                              )),
-                                              width: 40,
-                                              height: 40,
+                                            )),
+                                        Center(
+                                          child: GestureDetector(
+                                            onTap: () => setState(() {
+                                              selectedDay = i;
+                                            }),
+                                            child: Material(
+                                              elevation: 4,
+                                              color: selectedDay == i
+                                                  ? Color(0xffEFAB3E)
+                                                  : Colors.grey[800],
+                                              borderRadius:
+                                                  BorderRadius.circular(6),
+                                              child: SizedBox(
+                                                child: Center(
+                                                    child: Text(
+                                                  _weekdayList[i],
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: selectedDay == i
+                                                          ? Colors.grey[900]
+                                                          : Colors.white,
+                                                      fontSize: 18),
+                                                )),
+                                                width: 40,
+                                                height: 40,
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 50,
-                        ),
-                        Icon(
-                          Feather.settings,
-                          color: Colors.white70,
-                          size: 28,
-                        )
-                      ])),
+                          SizedBox(
+                            height: 50,
+                          ),
+                          Icon(
+                            Feather.settings,
+                            color: Colors.white70,
+                            size: 28,
+                          )
+                        ])),
+                  ),
                 ),
               ),
               SafeArea(
@@ -180,101 +196,137 @@ class _TaskManagerHomeViewState extends State<TaskManagerHomeView> {
                           Row(
                             textDirection: TextDirection.rtl,
                             children: [
-                              Text(
-                                '18',
-                                textAlign: TextAlign.right,
-                                style: TextStyle(
-                                    fontSize: 55, fontWeight: FontWeight.w900),
+                              FadeInDown(
+                                duration: Duration(milliseconds: 500),
+                                child: Text(
+                                  '18',
+                                  textAlign: TextAlign.right,
+                                  style: TextStyle(
+                                      fontSize: 55,
+                                      fontWeight: FontWeight.w900),
+                                ),
                               ),
                               SizedBox(
                                 width: 10,
                               ),
-                              Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: const [
-                                  Text(
-                                    'Tues',
-                                    style: TextStyle(color: Colors.black54),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Text(
-                                    'Aug 20',
-                                    style: TextStyle(color: Colors.black54),
-                                  ),
-                                ],
+                              FadeInDown(
+                                duration: Duration(milliseconds: 600),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: const [
+                                    Text(
+                                      'Tues',
+                                      style: TextStyle(color: Colors.black54),
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      'Aug 20',
+                                      style: TextStyle(color: Colors.black54),
+                                    ),
+                                  ],
+                                ),
                               )
                             ],
                           ),
                           SizedBox(
                             height: 30,
                           ),
-                          Text(
-                            'Schedule',
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 45),
+                          FadeInDown(
+                            duration: Duration(milliseconds: 400),
+                            delay: Duration(milliseconds: 400),
+                            child: Text(
+                              'Schedule',
+                              textAlign: TextAlign.right,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 45),
+                            ),
                           ),
-                          Divider(height: 2),
+                          FadeInDown(
+                              duration: Duration(milliseconds: 400),
+                              delay: Duration(milliseconds: 450),
+                              child: Divider(height: 2)),
                           SizedBox(
                             height: 20,
                           ),
-                          ScheduleTaskItem(
-                            color: Colors.red[400]!,
-                            title: 'Project Setup',
-                            description: 'Skype meeting',
-                            assignPeople: [
-                              AvatarList.peopleList[2],
-                              AvatarList.peopleList[1],
-                            ],
-                            timeFrom: '08:30',
-                            timeTo: '09:30',
-                          ),
-                          ScheduleTaskItem(
-                            color: Colors.blue[300]!,
-                            title: 'Add design',
-                            description: 'checking the UI',
-                            assignPeople: [
-                              AvatarList.peopleList[3],
-                            ],
-                            timeFrom: '10:40',
-                            timeTo: '11:30',
-                          ),
-                          ScheduleTaskItem(
-                            color: Colors.orange[300]!,
-                            title: 'Lunch Details',
-                            description: 'checking with the team',
-                            assignPeople: [
-                              AvatarList.peopleList[4],
-                            ],
-                            timeFrom: '14:50',
-                            timeTo: '15:30',
-                          ),
-                          ScheduleTaskItem(
-                            color: Colors.green[300]!,
-                            title: 'Add design',
-                            description: 'checking the UI',
-                            assignPeople: [
-                              AvatarList.peopleList[4],
-                              AvatarList.peopleList[3],
-                              AvatarList.peopleList[2],
-                            ],
-                            timeFrom: '12:00',
-                            timeTo: '14:20',
-                          ),
-                          ScheduleTaskItem(
-                            color: Colors.purple[300]!,
-                            title: 'Add design',
-                            description: 'checking the UI',
-                            assignPeople: [
-                              AvatarList.peopleList[3],
-                              AvatarList.peopleList[1],
-                            ],
-                            timeFrom: '16:20',
-                            timeTo: '18:00',
+                          FadeInDown(
+                            delay: Duration(milliseconds: 500),
+                            child: Column(
+                              children: [
+                                ElasticInRight(
+                                  delay: Duration(milliseconds: 400),
+                                  child: ScheduleTaskItem(
+                                    color: Colors.red[400]!,
+                                    title: 'Project Setup',
+                                    description: 'Skype meeting',
+                                    assignPeople: [
+                                      AvatarList.peopleList[2],
+                                      AvatarList.peopleList[1],
+                                    ],
+                                    timeFrom: '08:30',
+                                    timeTo: '09:30',
+                                  ),
+                                ),
+                                ElasticInRight(
+                                  delay: Duration(milliseconds: 600),
+                                  child: ScheduleTaskItem(
+                                    color: Colors.blue[300]!,
+                                    title: 'Add design',
+                                    description: 'checking the UI',
+                                    assignPeople: [
+                                      AvatarList.peopleList[3],
+                                    ],
+                                    timeFrom: '10:40',
+                                    timeTo: '11:30',
+                                  ),
+                                ),
+                                ElasticInRight(
+                                  delay: Duration(milliseconds: 800),
+                                  child: ScheduleTaskItem(
+                                    color: Colors.orange[300]!,
+                                    title: 'Lunch Details',
+                                    description: 'checking with the team',
+                                    assignPeople: [
+                                      AvatarList.peopleList[4],
+                                    ],
+                                    timeFrom: '14:50',
+                                    timeTo: '15:30',
+                                  ),
+                                ),
+                                ElasticInRight(
+                                  delay: Duration(milliseconds: 1000),
+                                  child: ScheduleTaskItem(
+                                    color: Colors.green[300]!,
+                                    title: 'Add design',
+                                    description: 'checking the UI',
+                                    assignPeople: [
+                                      AvatarList.peopleList[4],
+                                      AvatarList.peopleList[3],
+                                      AvatarList.peopleList[2],
+                                    ],
+                                    timeFrom: '12:00',
+                                    timeTo: '14:20',
+                                  ),
+                                ),
+                                ElasticInRight(
+                                  delay: Duration(milliseconds: 1300),
+                                  child: ScheduleTaskItem(
+                                    color: Colors.purple[300]!,
+                                    title: 'Add design',
+                                    description: 'checking the UI',
+                                    assignPeople: [
+                                      AvatarList.peopleList[3],
+                                      AvatarList.peopleList[1],
+                                    ],
+                                    timeFrom: '16:20',
+                                    timeTo: '18:00',
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -285,28 +337,32 @@ class _TaskManagerHomeViewState extends State<TaskManagerHomeView> {
                 left: hideMenu ? -34 : 24,
                 bottom: 100,
                 child: SafeArea(
-                  child: Row(
-                    children: [
-                      AnimatedContainer(
-                        duration: Duration(milliseconds: 200),
-                        color: Colors.redAccent,
-                      ),
-                      Center(
-                        child: Transform.rotate(
-                          angle: 3.14 / 2,
-                          child: ElevatedButton(
-                              onPressed: () {
-                                setState(() {
-                                  hideMenu = !hideMenu;
-                                });
-                              },
-                              child: Text(
-                                'Schedule',
-                                style: TextStyle(letterSpacing: 1.2),
-                              )),
+                  child: FadeInLeft(
+                    duration: Duration(milliseconds: 600),
+                    delay: Duration(milliseconds: 350),
+                    child: Row(
+                      children: [
+                        AnimatedContainer(
+                          duration: Duration(milliseconds: 200),
+                          color: Colors.redAccent,
                         ),
-                      )
-                    ],
+                        Center(
+                          child: Transform.rotate(
+                            angle: 3.14 / 2,
+                            child: ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    hideMenu = !hideMenu;
+                                  });
+                                },
+                                child: Text(
+                                  'Schedule',
+                                  style: TextStyle(letterSpacing: 1.2),
+                                )),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
