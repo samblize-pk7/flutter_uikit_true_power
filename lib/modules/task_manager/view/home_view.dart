@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,14 +14,14 @@ List<String> _weekdayList = [
   'S',
 ];
 
-class TodoManagerHomeView extends StatefulWidget {
-  const TodoManagerHomeView({Key? key}) : super(key: key);
+class TaskManagerHomeView extends StatefulWidget {
+  const TaskManagerHomeView({Key? key}) : super(key: key);
 
   @override
-  State<TodoManagerHomeView> createState() => _TodoManagerHomeViewState();
+  State<TaskManagerHomeView> createState() => _TaskManagerHomeViewState();
 }
 
-class _TodoManagerHomeViewState extends State<TodoManagerHomeView> {
+class _TaskManagerHomeViewState extends State<TaskManagerHomeView> {
   bool hideMenu = false;
   int selectedDay = 2;
   @override
@@ -219,7 +218,64 @@ class _TodoManagerHomeViewState extends State<TodoManagerHomeView> {
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 45),
                           ),
-                          Divider(height: 2)
+                          Divider(height: 2),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          ScheduleTaskItem(
+                            color: Colors.red[400]!,
+                            title: 'Project Setup',
+                            description: 'Skype meeting',
+                            assignPeople: [
+                              AvatarList.peopleList[2],
+                              AvatarList.peopleList[1],
+                            ],
+                            timeFrom: '08:30',
+                            timeTo: '09:30',
+                          ),
+                          ScheduleTaskItem(
+                            color: Colors.blue[300]!,
+                            title: 'Add design',
+                            description: 'checking the UI',
+                            assignPeople: [
+                              AvatarList.peopleList[3],
+                            ],
+                            timeFrom: '10:40',
+                            timeTo: '11:30',
+                          ),
+                          ScheduleTaskItem(
+                            color: Colors.orange[300]!,
+                            title: 'Lunch Details',
+                            description: 'checking with the team',
+                            assignPeople: [
+                              AvatarList.peopleList[4],
+                            ],
+                            timeFrom: '14:50',
+                            timeTo: '15:30',
+                          ),
+                          ScheduleTaskItem(
+                            color: Colors.green[300]!,
+                            title: 'Add design',
+                            description: 'checking the UI',
+                            assignPeople: [
+                              AvatarList.peopleList[4],
+                              AvatarList.peopleList[3],
+                              AvatarList.peopleList[2],
+                            ],
+                            timeFrom: '12:00',
+                            timeTo: '14:20',
+                          ),
+                          ScheduleTaskItem(
+                            color: Colors.purple[300]!,
+                            title: 'Add design',
+                            description: 'checking the UI',
+                            assignPeople: [
+                              AvatarList.peopleList[3],
+                              AvatarList.peopleList[1],
+                            ],
+                            timeFrom: '16:20',
+                            timeTo: '18:00',
+                          ),
                         ],
                       ),
                     )),
@@ -260,4 +316,159 @@ class _TodoManagerHomeViewState extends State<TodoManagerHomeView> {
       ),
     );
   }
+}
+
+class ScheduleTaskItem extends StatelessWidget {
+  final Color color;
+  final String title;
+  final String description;
+  final List<AvatarPeople> assignPeople;
+  final String timeFrom;
+  final String timeTo;
+
+  const ScheduleTaskItem({
+    Key? key,
+    required this.color,
+    required this.title,
+    required this.description,
+    required this.assignPeople,
+    required this.timeFrom,
+    required this.timeTo,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var _assignedPeople = '';
+    for (var e in assignPeople) {
+      _assignedPeople += e.name + ', ';
+    }
+
+    return Padding(
+      padding: const EdgeInsets.only(top: 10, bottom: 10),
+      child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          textDirection: TextDirection.rtl,
+          children: [
+            Expanded(
+                child: Container(
+                    padding: EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12), color: color),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              title,
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
+                            Icon(
+                              Icons.chevron_right_rounded,
+                              size: 26,
+                            ),
+                          ],
+                        ),
+                        Text(description,
+                            textAlign: TextAlign.left, style: TextStyle()),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Row(
+                          children: [
+                            Stack(children: [
+                              SizedBox(
+                                width: 30 + assignPeople.length * 15,
+                                height: 40,
+                              ),
+                              ...List.generate(
+                                assignPeople.length,
+                                (i) => Positioned(
+                                  left: i * 20,
+                                  child: CircleAvatar(
+                                      backgroundImage:
+                                          AssetImage(assignPeople[i].avtImage)),
+                                ),
+                              ),
+                            ]),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Expanded(
+                              child: Text(
+                                _assignedPeople,
+                                maxLines: 3,
+                                softWrap: true,
+                                style: TextStyle(fontSize: 13),
+                              ),
+                            )
+                          ],
+                        )
+                      ],
+                    ))),
+            SizedBox(
+              width: 10,
+            ),
+            Column(
+              children: [
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  timeFrom,
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  timeTo,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.black54),
+                ),
+              ],
+            ),
+            SizedBox(
+              width: 5,
+            )
+          ]),
+    );
+  }
+}
+
+class AvatarPeople {
+  final String name;
+  final String avtImage;
+
+  AvatarPeople(this.name, this.avtImage);
+}
+
+class AvatarList {
+  AvatarList._internal();
+
+//--------------- Here ----------------------
+  static List<AvatarPeople> peopleList = [
+    AvatarPeople(
+      'julian wan',
+      'assets/images/Avatars/julian-wan.jpg',
+    ),
+    AvatarPeople(
+      'kirill balobanov',
+      'assets/images/Avatars/kirill-balobanov.jpg',
+    ),
+    AvatarPeople(
+      'max mclaren',
+      'assets/images/Avatars/leio-mclaren.jpg',
+    ),
+    AvatarPeople(
+      'michael dam',
+      'assets/images/Avatars/michael-dam.jpg',
+    ),
+    AvatarPeople(
+      'vicky hladynets',
+      'assets/images/Avatars/vicky-hladynets.jpg',
+    ),
+  ];
 }

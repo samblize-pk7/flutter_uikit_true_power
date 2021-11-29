@@ -2,6 +2,7 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_uikit_true_power/config/Routes/routes.dart';
 import 'package:flutter_uikit_true_power/constants/my_assets.dart';
+import 'package:flutter_uikit_true_power/modules/task_manager/view/home_view.dart';
 
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/get.dart';
@@ -30,9 +31,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter true power',
-      theme: ThemeData.dark(),
-      initialRoute: '/',
-      getPages: RoutesName().routes,
+      theme: ThemeData.dark(), 
+      home: TaskManagerHomeView(),
+      // initialRoute: '/',
+      // getPages: RoutesName().routes,
     );
   }
 }
