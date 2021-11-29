@@ -12,5 +12,8 @@ flutter run
 
 ## Screenshots
 ### Smart House
-
 <img src="https://user-images.githubusercontent.com/39870083/143673051-9259bd86-66a7-447a-91cb-08aa26d078fa.png" alt="Smart House" width="700"/>
+
+### Task Manager
+<img src="https://user-images.githubusercontent.com/39870083/143866599-65c13bcb-4a84-437c-adb6-743c0a2f611e.png" alt="Task manager" width="700"/>
+
