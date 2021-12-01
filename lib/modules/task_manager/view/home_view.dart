@@ -1,8 +1,6 @@
-import 'dart:developer';
-
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_uikit_true_power/modules/task_manager/model/avatar.dart';
+import 'package:flutter_uikit_true_power/modules/task_manager/view/taskwidget.dart';
 import 'package:flutter_uikit_true_power/modules/task_manager/view/schedule_widget.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,11 +25,7 @@ class TaskManagerHomeView extends StatefulWidget {
 class _TaskManagerHomeViewState extends State<TaskManagerHomeView> {
   bool hideMenu = false;
   int selectedDay = 2;
-
-//______________________________________
-//
-//NOTE:  @Sajjad.Theory on Instagram
-//______________________________________
+  bool swapPage = false;
 
   @override
   Widget build(BuildContext context) {
@@ -68,9 +62,7 @@ class _TaskManagerHomeViewState extends State<TaskManagerHomeView> {
                           GestureDetector(
                             onTap: () => setState(() {
                               // hideMenu = !hideMenu;
-
-                              // reload the page
-                              Navigator.of(context).pushReplacementNamed('/');
+                              setState(() => swapPage = !swapPage);
                             }),
                             child: Icon(
                               Feather.grid,
@@ -170,10 +162,14 @@ class _TaskManagerHomeViewState extends State<TaskManagerHomeView> {
                           SizedBox(
                             height: 50,
                           ),
-                          Icon(
-                            Feather.settings,
-                            color: Colors.white70,
-                            size: 28,
+                          GestureDetector(
+                            onTap: () =>
+                                Navigator.of(context).pushReplacementNamed('/'),
+                            child: Icon(
+                              Feather.settings,
+                              color: Colors.white70,
+                              size: 28,
+                            ),
                           )
                         ])),
                   ),
@@ -237,7 +233,14 @@ class _TaskManagerHomeViewState extends State<TaskManagerHomeView> {
                           SizedBox(
                             height: 30,
                           ),
-                          ScheduleWidget(),
+                          Builder(builder: (_) {
+                            if (swapPage) {
+                              return TaskWidget();
+                            } else {
+                              return ScheduleWidget();
+                            }
+                            ;
+                          })
                         ],
                       ),
                     )),

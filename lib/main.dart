@@ -33,8 +33,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter true power',
       theme: ThemeData.dark(), 
       home: TaskManagerHomeView(),
-      // initialRoute: '/',
-      // getPages: RoutesName().routes,
+      initialRoute: '/',
+      getPages: RoutesName().routes,
     );
   }
 }
