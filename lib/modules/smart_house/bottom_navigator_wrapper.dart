@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_uikit_true_power/config/themes/themdata_settings.dart';
-import 'package:flutter_uikit_true_power/modules/smart_house/sh_controller.dart';
-import 'package:flutter_uikit_true_power/modules/smart_house/sh_profile_temp_view.dart';
-import 'package:flutter_uikit_true_power/modules/smart_house/sh_widget_view.dart';
+import 'package:flutter_uikit_true_power/modules/smart_house/controller.dart';
+import 'package:flutter_uikit_true_power/modules/smart_house/profile_temperature_view.dart';
+import 'package:flutter_uikit_true_power/modules/smart_house/home_view.dart';
 
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';

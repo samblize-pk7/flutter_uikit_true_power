@@ -2,12 +2,12 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_uikit_true_power/config/Routes/routes.dart';
 import 'package:flutter_uikit_true_power/constants/my_assets.dart';
-import 'package:flutter_uikit_true_power/modules/smart_house/sh_profile_temp_view.dart';
-import 'package:flutter_uikit_true_power/modules/smart_house/sh_wrapper.dart';
+
+import 'package:flutter_uikit_true_power/modules/smart_house/bottom_navigator_wrapper.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/get.dart';
 import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
-import 'package:scroll_snap_list/scroll_snap_list.dart';
+
 
 void main() => runApp(const MyApp());
 

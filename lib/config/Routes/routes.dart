@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_uikit_true_power/main.dart';
-import 'package:flutter_uikit_true_power/modules/smart_house/sh_wrapper.dart';
+import 'package:flutter_uikit_true_power/modules/smart_house/bottom_navigator_wrapper.dart';
 import 'package:flutter_uikit_true_power/modules/task_manager/view/home_view.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 

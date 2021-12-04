@@ -3,7 +3,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_uikit_true_power/constants/my_assets.dart';
-import 'package:flutter_uikit_true_power/modules/smart_house/sh_controller.dart';
+import 'package:flutter_uikit_true_power/modules/smart_house/controller.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/state_manager.dart';
 
