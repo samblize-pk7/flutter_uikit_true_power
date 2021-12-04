@@ -11,47 +11,25 @@ class RoutesName {
   factory RoutesName() {
     return _singleton;
   }
-//--------------- Pages ----------------------
-
+//--------------- Routes ----------------------
   List<GetPage<dynamic>>? get routes => _routes;
   final List<GetPage<dynamic>>? _routes = [
-    GetPage(name: RoutesName.home, page: () => HomeView()),
+    GetPage(name: RoutesName.home, page: () => MainView()),
     GetPage(
-        name: RoutesName.smartHouseApp.base,
+        name: RoutesName.smartHouseApp,
         page: () => SmartHouseWrapper(),
         children: const []),
     GetPage(
-        name: RoutesName.todoManager.base,
+        name: RoutesName.todoManager,
         page: () => TaskManagerHomeView(),
         children: const []),
   ];
+
 //--------------- Routes Name ----------------------
-
   static const String home = '/';
-  
-  static _SmartHomeApp smartHouseApp = _SmartHomeApp();
-  static _TodoManager todoManager = _TodoManager();
-}
 
-@immutable
-class _SmartHomeApp {
-  const _SmartHomeApp._internal();
-  static final _SmartHomeApp _singleton = _SmartHomeApp._internal();
-  factory _SmartHomeApp() {
-    return _singleton;
-  }
-//--------------- Here ----------------------
-
-  final String base = '/Smart-house';
-}
-@immutable
-class _TodoManager {
-  const _TodoManager._internal();
-  static final _TodoManager _singleton = _TodoManager._internal();
-  factory _TodoManager() {
-    return _singleton;
-  }
-//--------------- Here ----------------------
-
-  final String base = '/Todo-manager';
+// these are the Home page views
+  static String smartHouseApp = '/Smart-house';
+  static String todoManager = '/Todo-manager';
+  static String netflixMovieApp = '/netflix-movie';
 }

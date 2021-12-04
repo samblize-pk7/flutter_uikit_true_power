@@ -11,13 +11,6 @@ class SmartHouseWidgetView extends StatelessWidget {
   SmartHouseWidgetView({Key? key}) : super(key: key);
   final NavController controller = Get.put(NavController());
 
-
-
-  // +++++++++++++++++++++++++++++++++++++
-  // ++++                               ++
-  // ++++  @Sajjad.Theory on Instagram  ++
-  // ++++                               ++
-  // +++++++++++++++++++++++++++++++++++++
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -31,15 +24,16 @@ class SmartHouseWidgetView extends StatelessWidget {
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children:  [
+                  children: [
                     FadeInLeft(
                       child: Text(
                         'Home',
-                        style:
-                            TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.bold),
                       ),
                     ),
-                    FadeInLeft(delay: Duration(milliseconds: 100),
+                    FadeInLeft(
+                      delay: Duration(milliseconds: 100),
                       child: Text(
                         'Sajjad theory',
                         style: TextStyle(fontWeight: FontWeight.w500),
@@ -47,7 +41,8 @@ class SmartHouseWidgetView extends StatelessWidget {
                     )
                   ],
                 ),
-                FadeInRight(delay: Duration(milliseconds: 150),
+                FadeInRight(
+                  delay: Duration(milliseconds: 150),
                   child: Stack(
                     children: [
                       Neumorphic(
@@ -87,7 +82,8 @@ class SmartHouseWidgetView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
-                  child: FadeInDown(delay: Duration(milliseconds: 200),
+                  child: FadeInDown(
+                    delay: Duration(milliseconds: 200),
                     child: Neumorphic(
                       style: NeumorphicStyle(
                           shape: NeumorphicShape.flat,
@@ -127,70 +123,77 @@ class SmartHouseWidgetView extends StatelessWidget {
                 SizedBox(
                   width: 20,
                 ),
-                Center(
-                  child: FadeInDown(delay: Duration(milliseconds: 250),
-                    child: GestureDetector(
-                      onTap: () => controller.wifiToggle(),
-                      child: Neumorphic(
-                        style: NeumorphicStyle(
-                            shape: NeumorphicShape.flat,
-                            boxShape: NeumorphicBoxShape.roundRect(
-                                BorderRadius.circular(10)
-                                    .copyWith(topRight: Radius.circular(25))),
-                            depth: 3,
-                            intensity: .95,
-                            lightSource: LightSource.topLeft,
-                            color: Color(0xffE3EDF7)),
-                        child: Container(
-                          padding: EdgeInsets.all(30),
-                          height: 140,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Icon(
-                                    Icons.wifi,
-                                    color: Colors.grey[600],
-                                    size: 30,
-                                  ),SizedBox(width: 10,),
-                                  Neumorphic(
-                                    style: NeumorphicStyle(
-                                        shape: NeumorphicShape.convex,
-                                        boxShape: NeumorphicBoxShape.roundRect(
-                                            BorderRadius.circular(10).copyWith(
-                                                topRight: Radius.circular(25))),
-                                        depth: -1,
-                                        intensity: .85,
-                                        lightSource: LightSource.topLeft,
-                                        color: Color(0xffE3EDF7)),
-                                    child: Obx(() => AnimatedContainer(
-                                          duration: Duration(
-                                            milliseconds: 200,
-                                          ),
-                                          width: 10,
-                                          height: 10,
-                                          decoration: BoxDecoration(
-                                              color: controller.wifi.value
-                                                  ? Colors.greenAccent[400]
-                                                  : Colors.orange,
-                                              borderRadius:
-                                                  BorderRadius.circular(50)),
-                                        )),
-                                  )
-                                ],
-                              ),
-                              Text(
-                                'Wifi',
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    letterSpacing: 2,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey[600]),
-                              )
-                            ],
+                Expanded(
+                  child: Center(
+                    child: FadeInDown(
+                      delay: Duration(milliseconds: 250),
+                      child: GestureDetector(
+                        onTap: () => controller.wifiToggle(),
+                        child: Neumorphic(
+                          style: NeumorphicStyle(
+                              shape: NeumorphicShape.flat,
+                              boxShape: NeumorphicBoxShape.roundRect(
+                                  BorderRadius.circular(10)
+                                      .copyWith(topRight: Radius.circular(25))),
+                              depth: 3,
+                              intensity: .95,
+                              lightSource: LightSource.topLeft,
+                              color: Color(0xffE3EDF7)),
+                          child: Container(
+                            padding: EdgeInsets.all(30),
+                            height: 140,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Icon(
+                                      Icons.wifi,
+                                      color: Colors.grey[600],
+                                      size: 30,
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Neumorphic(
+                                      style: NeumorphicStyle(
+                                          shape: NeumorphicShape.convex,
+                                          boxShape: NeumorphicBoxShape.roundRect(
+                                              BorderRadius.circular(10).copyWith(
+                                                  topRight: Radius.circular(25))),
+                                          depth: -1,
+                                          intensity: .85,
+                                          lightSource: LightSource.topLeft,
+                                          color: Color(0xffE3EDF7)),
+                                      child: Obx(() => AnimatedContainer(
+                                            duration: Duration(
+                                              milliseconds: 200,
+                                            ),
+                                            width: 10,
+                                            height: 10,
+                                            decoration: BoxDecoration(
+                                                color: controller.wifi.value
+                                                    ? Colors.greenAccent[400]
+                                                    : Colors.orange,
+                                                borderRadius:
+                                                    BorderRadius.circular(50)),
+                                          )),
+                                    )
+                                  ],
+                                ),
+                                Text(
+                                  'Wifi',
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      letterSpacing: 2,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.grey[600]),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -206,7 +209,8 @@ class SmartHouseWidgetView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
-                  child: FadeInLeft(delay: Duration(milliseconds: 300),
+                  child: FadeInLeft(
+                    delay: Duration(milliseconds: 300),
                     child: Neumorphic(
                       style: NeumorphicStyle(
                           shape: NeumorphicShape.flat,
@@ -247,7 +251,8 @@ class SmartHouseWidgetView extends StatelessWidget {
                   width: 20,
                 ),
                 Expanded(
-                  child: FadeInRight(delay: Duration(milliseconds: 350),
+                  child: FadeInRight(
+                    delay: Duration(milliseconds: 350),
                     child: Neumorphic(
                       style: NeumorphicStyle(
                           shape: NeumorphicShape.flat,
@@ -301,7 +306,8 @@ class SmartHouseWidgetView extends StatelessWidget {
             SizedBox(
               height: 40,
             ),
-            FadeInLeft(delay: Duration(milliseconds: 400),
+            FadeInLeft(
+              delay: Duration(milliseconds: 400),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -339,7 +345,7 @@ class SmartHouseWidgetView extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            FadeInUp(delay: Duration(milliseconds: 500) ,child: NeuSlider())
+            FadeInUp(delay: Duration(milliseconds: 500), child: NeuSlider())
           ],
         ),
       ),

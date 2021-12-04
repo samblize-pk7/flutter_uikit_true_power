@@ -54,6 +54,7 @@ class _TaskManagerHomeViewState extends State<TaskManagerHomeView> {
                     height: double.infinity,
                     width: 80,
                     color: Color(0xFF050505),
+                    
                     child: SafeArea(
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,

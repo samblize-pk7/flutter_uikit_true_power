@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_uikit_true_power/config/themes/themdata_settings.dart';
 import 'package:flutter_uikit_true_power/modules/smart_house/sh_controller.dart';
+import 'package:flutter_uikit_true_power/modules/smart_house/sh_profile_temp_view.dart';
 import 'package:flutter_uikit_true_power/modules/smart_house/sh_widget_view.dart';
 
 import 'package:get/get.dart';
@@ -17,9 +18,7 @@ class SmartHouseWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> page = [
      SmartHouseWidgetView(),
-      Center(
-        child: Text('Profile',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,letterSpacing: 2),),
-      ),
+     SmartHouseProfileTemperatureView(),
       Center(
         child: Text('setting'),
       ),

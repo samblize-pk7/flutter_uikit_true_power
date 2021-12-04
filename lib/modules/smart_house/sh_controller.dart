@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 
 class NavController extends GetxController {
-  RxInt currentIndex = 0.obs;
-  var pageController = PageController().obs;
+  RxInt currentIndex = 1.obs;
+  var pageController = PageController(initialPage: 1).obs;
   var wifi = false.obs;
   RxDouble temp = 34.00.obs;
   void setCurrentIndex(index) {
